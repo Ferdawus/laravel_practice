@@ -44,4 +44,12 @@ class User extends Authenticatable
     public function phone(){
         return $this->hasOne(Phone::class);
     }
+    public static function boot()
+    {
+        parent::boot();
+        
+        User::creating(function ($user){
+            $user->points = 10;
+        });
+    }
 }

@@ -9,12 +9,12 @@ class StudentController extends Controller
 {
     public function index()
     {
-        // $students = Student::all();
+        return $students = Student::all();
         // $students = Student::where('name','Ariel Dean')->first();
         // $students = Student::firstWhere('name','Ariel Dean');
-        $students = Student::find(2);
+        // $students = Student::find(2);
 
-        dd($students);
+        // dd($students);
         return view('index',compact('students'));
     }
     public function add()
