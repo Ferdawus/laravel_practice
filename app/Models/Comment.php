@@ -8,7 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-    public function post(){
+
+    protected $table = 'comments';
+    protected $fillable = 
+    [
+        'post_id',
+        'message',
+    ];
+
+    public function post()
+    {
         return $this->belongsTo(Post::class); 
-     }
+    }
 }

@@ -10,10 +10,10 @@ use Facades\App\Services\SimpleService;
 
 class UserController extends Controller
 {
-    public function __construct( protected SimpleService $sampleService)
-    {
+    // public function __construct( protected SimpleService $sampleService)
+    // {
         
-    }
+    // }
 
     // public function index(){
     //     $this->sampleService->doSomething();
@@ -28,8 +28,24 @@ class UserController extends Controller
         // return User::oldest()->get();
         return User::oldest('id')->get();
     }
-    public function firstorcreate($name,$email,$password){
+    public function firstorcreate($name,$email,$password)
+    {
         return User::firstOrCreate(['name' => $name,'email' =>$email,'password' =>$password]);
+    }
+    public function firstor($id)
+    {
+        // return User::where('id',$id)->firstOr(fn () => abort(403));
+        return User::where('id',$id)->firstOr(function () {
+            abort(403);
+        });
+    }
+    public function findor($id)
+    {
+        return User::findOr($id,function(){
+            info('Not found');
+            abort('404');
+        });
+        // return User::findOr($id);
     }
     public function show(){
         return User::all(['id','name']);

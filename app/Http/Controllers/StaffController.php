@@ -9,7 +9,13 @@ class StaffController extends Controller
 {
     public function index()
     {
+        // min count
+        // $minSlaray  = Staff::whereNotNull('salary')->min('salary');
+        // $minSlaray  = Staff::whereNotNull('salary')->orderBY('salary','asc')->value('salary');
 
+        // $maxSlaray  = Staff::whereNotNull('salary')->max('salary');
+        $maxSlaray  = Staff::whereNotNull('salary')->orderBY('salary','desc')->value('salary');
+        return $maxSlaray;
     }
     public function create(Request $request)
     {
