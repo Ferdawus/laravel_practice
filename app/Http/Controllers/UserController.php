@@ -67,4 +67,12 @@ class UserController extends Controller
 
         return $user;
     }
+
+    public function dmy_filter($month,$year)
+    {
+        // return User::whereDate('created_at',$date)->get();
+        // return User::whereMonth('created_at',$month)->get();
+        // return User::whereYear('created_at',$year)->get();
+        return User::whereMonth('created_at',$month)->whereYear('created_at',$year)->get();
+    }
 }

@@ -51,7 +51,8 @@ Route::get('/user/show/{email}',[UserController::class,'edit']);
 Route::get('/user/firstor/{id}',[UserController::class,'firstor']);
 Route::get('/user/firstorcreate/{name}/{email}/{password}',[UserController::class,'firstorcreate']);
 Route::get('/user/findor/{id}',[UserController::class,'findor']);
-
+Route::get('/user/search/{date}',[UserController::class,'dmy_filter']);
+Route::get('/user/search/{month}/{year}',[UserController::class,'dmy_filter']);
 
 Route::get('/user-select',function(){
     return User::select('id','name as username','email')->get();
