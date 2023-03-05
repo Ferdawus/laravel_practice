@@ -5,8 +5,11 @@ use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Models\Comment;
+use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +36,7 @@ Route::post('/phone/create',[PhoneController::class,'create']);
 Route::get('/phone/show/{id}',[PhoneController::class,'show_user']);
 Route::get('/user/show/{id}',[PhoneController::class,'show_phone']);
 
-// onoe to manay realation ship
+// one to manay realation ship
 Route::get('/post/index',[PostController::class,'index']);
 Route::post('/post/create',[PostController::class,'create']);
 Route::get('/post/show/comment/{id}',[PostController::class,'show_comment']);
@@ -41,7 +44,9 @@ Route::get('/post/index',[PostController::class,'index']);
 Route::post('/comment/create',[CommentController::class,'create']);
 Route::get('/comment/show/post/{id}',[CommentController::class,'show_post']);
 Route::get('/comment/index',[CommentController::class,'index']);
-
+//many to many realation ship
+Route::post('/tag/create',[TagController::class,'create']);
+Route::get('/tag/fivok',[TagController::class,'fivok']);
 
 Route::get('/user',[UserController::class,'index']);
 Route::post('/user/create',[UserController::class,'create']);

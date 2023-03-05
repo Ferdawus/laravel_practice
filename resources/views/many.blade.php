@@ -11,7 +11,17 @@
 </head>
 
 <body>
-    <h1 class="text-center">Laravel Practice </h1>
+
+    @foreach ($posts as $post)
+        <li>{{ $post->title }}</li>
+
+        <ul>
+            @foreach ($post->tags as $item)
+                <li>{{ $item->name }}</li>
+            @endforeach
+
+        </ul>
+    @endforeach
 
 </body>
 
