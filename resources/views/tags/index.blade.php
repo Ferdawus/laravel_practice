@@ -12,12 +12,12 @@
 
 <body>
 
-    @foreach ($posts as $post)
-        <li>{{ $post->title }}</li>
+    @foreach ($tags as $tag)
+        <li>{{ $tag->name }}</li>
 
         <ul>
-            @foreach ($post->tags as $tag)
-                <li>{{ $tag->name }} {{ $tag->pivot->created_at }}</li>
+            @foreach ($tag->posts as $post)
+                <li>{{ $post->title }}</li>
             @endforeach
 
         </ul>

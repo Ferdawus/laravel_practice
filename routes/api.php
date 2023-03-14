@@ -47,6 +47,8 @@ Route::get('/comment/index',[CommentController::class,'index']);
 //many to many realation ship
 Route::post('/tag/create',[TagController::class,'create']);
 Route::get('/tag/fivok',[TagController::class,'fivok']);
+Route::get('/tags',[TagController::class,'index']);
+
 
 Route::get('/user',[UserController::class,'index']);
 Route::post('/user/create',[UserController::class,'create']);
