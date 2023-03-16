@@ -28,18 +28,28 @@ class TagController extends Controller
     
         // $tag   = Tag::first();
         $post  = Post::first();
+
         // dd($post->tags->first()->pivot->created_at);    
-        // $post->tags()->attach(2);
+        //  dd($post->tags->first()->pivot->status);    
+        // dd($post->tags->first());    
+
+        // $post->tags()->attach([1 =>[
+        //     'status' => 'approved'
+        // ]]);
+       $post->tags()->detach([1 =>[
+            'status' => 'approved'
+        ]]);
 
         // $post = Post::with('tags')->first();
         // $post->tags()->attach([2,3,4]);
         // dd($post);
 
-        $posts = Post::with('tags')->get();
+        
         // $posts = Post::with('tags')->first();
         // dd($posts);
         // $posts->tags()->detach([2]);
-
+        
+        $posts = Post::with('tags')->get();
         return view('many',compact('posts'));       
         
     }
