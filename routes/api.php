@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MechanicController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WonerController;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
@@ -49,6 +52,15 @@ Route::post('/tag/create',[TagController::class,'create']);
 Route::get('/tag/fivok',[TagController::class,'fivok']);
 Route::get('/tags',[TagController::class,'index']);
 
+//Has One Through
+Route::get('/mechanic/index',[MechanicController::class,'index']);
+Route::post('/mechanic/create',[MechanicController::class,'create']);
+
+Route::get('/car/index',[CarController::class,'index']);
+Route::post('/car/create',[CarController::class,'create']);
+
+Route::get('/owners/index',[WonerController::class,'index']);
+Route::post('/owners/create',[WonerController::class,'create']);
 
 Route::get('/user',[UserController::class,'index']);
 Route::post('/user/create',[UserController::class,'create']);
