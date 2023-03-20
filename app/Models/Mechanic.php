@@ -14,4 +14,14 @@ class Mechanic extends Model
      * @var array
      */
     protected $fillable = ['name'];
+
+
+    public function carWaner()
+    {
+        return $this->hasOneThrough(Owner::class,Car::class);
+    }
+    public function car()
+    {
+        return $this->hasOne(Car::class);
+    }
 }

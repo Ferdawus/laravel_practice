@@ -9,7 +9,9 @@ class MechanicController extends Controller
 {
     public function index()
     {
+        $mechanics = Mechanic::with('carWaner')->get();
 
+        return view('mechanic.index',compact('mechanics'));
     }
     public function create(Request $request)
     {
